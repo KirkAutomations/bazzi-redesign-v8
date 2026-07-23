@@ -101,6 +101,9 @@ html[data-font="forged"] .hero h1{font-size:clamp(2.65rem,5.25vw,5rem);max-width
         host.innerHTML='';
         window.TCWidget.init({apikey:'ad3fd73542378c28f465e66de6638485',container:'tireconnect_v8'});
         host.dataset.status='initialized';
+        setTimeout(()=>{
+          if(host.dataset.status==='initialized' && !host.querySelector('select')) fail();
+        },15000);
         return;
       }catch(error){console.error('TireConnect initialization failed',error);}
     }
